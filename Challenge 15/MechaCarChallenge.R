@@ -10,3 +10,12 @@ lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AW
 #6.calculate summary statistics
 summary(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, data=MechaCar_mpg))
 #7.save RScript to GitHub
+
+#DELIVERABLE 2
+#1.download Suspension_Coil.csv file
+#2.import/read file as a table
+Suspension_Coil_Data <- read.csv('Suspension_Coil.csv')
+#3.generate summary statistics
+total_summary <- Suspension_Coil_Data %>% summarize(Mean=mean(PSI), Median=median(PSI), Variance=var(PSI), SD=sd(PSI), .groups = 'keep') 
+#4.generate summary statistics by each manufacturer lot
+lot_summary <- Suspension_Coil_Data %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mean(PSI), Median=median(PSI), Variance=var(PSI), SD=sd(PSI), .groups = 'keep') 
