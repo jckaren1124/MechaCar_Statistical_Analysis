@@ -18,4 +18,17 @@ Suspension_Coil_Data <- read.csv('Suspension_Coil.csv')
 #3.generate summary statistics
 total_summary <- Suspension_Coil_Data %>% summarize(Mean=mean(PSI), Median=median(PSI), Variance=var(PSI), SD=sd(PSI), .groups = 'keep') 
 #4.generate summary statistics by each manufacturer lot
-lot_summary <- Suspension_Coil_Data %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mean(PSI), Median=median(PSI), Variance=var(PSI), SD=sd(PSI), .groups = 'keep') 
+lot_summary <- Suspension_Coil_Data %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mean(PSI), Median=median(PSI), Variance=var(PSI), SD=sd(PSI), .groups = 'keep')
+
+#DELIVERABLE 3
+#1.compare PSI mean of all lots versus population mean
+t.test(Suspension_Coil_Data$PSI, mu=1500)
+#2.compare PSI mean of each lot versus population mean
+filter_lot1 <- subset(Suspension_Coil_Data, Manufacturing_Lot == "Lot1")
+t.test(filter_lot1$PSI, mu=1500)
+filter_lot2 <- subset(Suspension_Coil_Data, Manufacturing_Lot == "Lot2")
+t.test(filter_lot2$PSI, mu=1500)
+filter_lot3 <- subset(Suspension_Coil_Data, Manufacturing_Lot == "Lot3")
+t.test(filter_lot3$PSI, mu=1500)
+
+#DELIVERABLE 4
