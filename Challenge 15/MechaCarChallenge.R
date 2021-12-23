@@ -32,3 +32,4 @@ filter_lot3 <- subset(Suspension_Coil_Data, Manufacturing_Lot == "Lot3")
 t.test(filter_lot3$PSI, mu=1500)
 
 #DELIVERABLE 4
+#updated README
